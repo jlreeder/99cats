@@ -10,6 +10,8 @@ Cat.destroy_all
 
 cat1 = Cat.new(birth_date: Time.now, color: "black", name: "Aragorn", sex: "M", description: "Strider the ranger cat")
 cat2 = Cat.new(birth_date: 4.days.ago, color: "tabby", name: "Legolas", sex: "M", description: "The expert archery cat")
+cat3 = Cat.new(birth_date: 10.years.ago, color: "tortoishell", name: "Frodo", sex: "M", description: "The hero cat")
 
 cat1.save!
 cat2.save!
+cat3.save!

@@ -18,6 +18,10 @@ class Cat < ActiveRecord::Base
 
   VALID_COLORS = %w(black purple marmalade tortoishell tabby white grey)
 
+  def age
+    Time.now.year - self.birth_date.year
+  end
+
   private
   def valid_color
     unless VALID_COLORS.include?(self.color)
