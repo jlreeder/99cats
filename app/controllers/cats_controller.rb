@@ -1,6 +1,6 @@
-class CatsControllerController < ApplicationController
+class CatsController < ApplicationController
   def index
-    render :text "Hello World I'm a cat"
+    render text: "Hello World I'm a cat"
     # @cats = Cat.all
     # render :index
   end
