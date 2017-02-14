@@ -1,0 +1,40 @@
+<header>
+  <h1>Edit a Cat</h1>
+</header>
+
+<body>
+  <form action= "<%= cat_url(@cat) %>" method="post">
+    <input type="hidden" name="_method" value="PATCH">
+
+    <label for="cat[name]">Name</label>
+    <input type="text" name="cat[name]" value="<%= @cat.name %>">
+    <br>
+
+    <input type="radio" name="cat[sex]" value="M" checked="<%= @cat.sex == "M" ? "checked" : "" %>" >M
+    <input type="radio" name="cat[sex]" value="F" checked="<%= @cat.sex == "F" ? "checked" : "" %>" >F
+    <br>
+
+    <label for="cat[color]">Color</label>
+    <select name="cat[color]">
+      <option disabled>Choose one</option>
+      <option value="black" selected="<%= @cat.color == "black" ? "selected" : "" %>" >Black</option>
+      <option value="purple" selected="<%= @cat.color == "purple" ? "selected" : "" %>" >Purple</option>
+      <option value="marmalade" selected="<%= @cat.color == "marmalade" ? "selected" : "" %>" >Marmalade</option>
+      <option value="tortoishell" selected="<%= @cat.color == "tortoishell" ? "selected" : "" %>" >Tortoishell</option>
+      <option value="tabby" selected="<%= @cat.color == "tabby" ? "selected" : "" %>" >Tabby</option>
+      <option value="white" selected="<%= @cat.color == "white" ? "selected" : "" %>" >White</option>
+      <option value="grey" selected="<%= @cat.color == "grey" ? "selected" : "" %>" >Grey</option>
+    </select>
+    <br>
+
+    <label for="cat[birth_date]">Birth Date</label>
+    <input type="date" name="cat[birth_date]" value="<%= @cat.birth_date %>">
+    <br>
+
+    <label for="cat[description]">Description</label>
+    <textarea name="cat[description]"><%= @cat.description %></textarea>
+    <br>
+
+    <input type="submit" value="Update Cat">
+  </form>
+</body>
