@@ -14,14 +14,20 @@
 
 class Cat < ActiveRecord::Base
   validates :birth_date, :color, :name, :sex, :description, presence: true
-  validate :valid_color
+  validate :valid_color, :valid_sex
 
-  VALID_COLORS = %s(black purple marmalade tortoishell tabby white grey)
+  VALID_COLORS = %w(black purple marmalade tortoishell tabby white grey)
 
   private
   def valid_color
-    unless VALID_COLORS.include?(@color)
-      errors[:color] << "Cat's can't be #{@color}"
+    unless VALID_COLORS.include?(self.color)
+      errors[:color] << "Cats can't be #{self.color}."
+    end
+  end
+
+  def valid_sex
+    unless ["M", "F"].include?(self.sex)
+      errors[:sex] << "Cats can't be #{self.sex}."
     end
   end
 end
