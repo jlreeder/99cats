@@ -6,13 +6,11 @@ class CatsController < ApplicationController
   end
 
   def show
-    @cat = Cat.find(params[:id])
+    @cat = Cat.find_by(id: params[:id])
     if @cat
-      # NOTE: When do we use `cat_url(@cat)`?
       render :show
     else
-      flash.now[:errors] = @cat.errors.full_messages
-      redirect_to :index
+      redirect_to cats_url
     end
   end
 

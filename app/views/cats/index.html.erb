@@ -4,7 +4,7 @@
 <body>
   <ul>
     <% @cats.each do |cat| %>
-      <li><a href=""> <%= cat.name %> </a></li>
+      <li><a href="cats/<%= cat.id %>"> <%= cat.name %> </a></li>
     <% end %>
   </ul>
 </body>
