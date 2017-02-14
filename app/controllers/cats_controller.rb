@@ -23,8 +23,7 @@ class CatsController < ApplicationController
     if @cat.save
       render :show
     else
-      flash.now[:errors] = @cat.errors.full_messages
-      redirect_to :new
+      redirect_to new_cat_url
     end
   end
 
