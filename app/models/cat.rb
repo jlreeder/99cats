@@ -18,6 +18,8 @@ class Cat < ActiveRecord::Base
 
   VALID_COLORS = %w(black purple marmalade tortoishell tabby white grey)
 
+  has_many :cat_rental_requests, dependent: :destroy
+
   def age
     Time.now.year - self.birth_date.year
   end

@@ -19,6 +19,8 @@ class CatRentalRequest < ActiveRecord::Base
 
   VALID_STATUSES = %w(PENDING APPROVED DENIED)
 
+  belongs_to :cat
+
   private
   def valid_status
     unless VALID_STATUSES.include?(self.status)
@@ -44,7 +46,6 @@ class CatRentalRequest < ActiveRecord::Base
         cat_rental_requests
       WHERE
         #{self.cat_id} = cat_id AND
-        #{self.id} != id AND
         status = 'APPROVED' AND (
           #{self.start_date} < end_date OR
           start_date < #{self.end_date}
