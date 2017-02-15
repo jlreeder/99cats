@@ -21,6 +21,14 @@ class CatRentalRequest < ActiveRecord::Base
 
   belongs_to :cat
 
+  def approve!
+    overlaps = overlapping_approved_requests
+    overlaps.select! { |r| r.id != self.id }
+
+    self.status = (overlaps.empty? ? "APPROVED" : "DENIED")
+    self.save
+  end
+
   private
   def valid_status
     unless VALID_STATUSES.include?(self.status)
