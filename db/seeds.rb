@@ -21,6 +21,6 @@ request1 = CatRentalRequest.new(cat_id: cat1.id, start_date: 10.days.ago, end_da
 request2 = CatRentalRequest.new(cat_id: cat1.id, start_date: 2.days.ago, end_date: 1.day.ago)
 request3 = CatRentalRequest.new(cat_id: cat2.id, start_date: 2.days.ago, end_date: 1.day.ago)
 
-request1.save!
 request2.save!
+request1.save!
 request3.save!

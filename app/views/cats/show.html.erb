@@ -32,7 +32,7 @@
       <th>Status</th>
     </tr>
 
-    <% @cat.cat_rental_requests.each do |request| %>
+    <% @cat.cat_rental_requests.sort_by(&:start_date).each do |request| %>
       <tr>
         <td> <%= request.start_date %> </td>
         <td> <%= request.end_date %> </td>
