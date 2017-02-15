@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Cat.destroy_all
+CatRentalRequest.destroy_all
 
 cat1 = Cat.new(birth_date: Time.now, color: "black", name: "Aragorn", sex: "M", description: "Strider the ranger cat")
 cat2 = Cat.new(birth_date: 4.days.ago, color: "tabby", name: "Legolas", sex: "M", description: "The expert archery cat")
@@ -15,3 +16,11 @@ cat3 = Cat.new(birth_date: 10.years.ago, color: "tortoishell", name: "Frodo", se
 cat1.save!
 cat2.save!
 cat3.save!
+
+request1 = CatRentalRequest.new(cat_id: cat1.id, start_date: 10.days.ago, end_date: Time.now)
+request2 = CatRentalRequest.new(cat_id: cat1.id, start_date: 2.days.ago, end_date: 1.day.ago)
+request3 = CatRentalRequest.new(cat_id: cat2.id, start_date: 2.days.ago, end_date: 1.day.ago)
+
+request1.save!
+request2.save!
+request3.save!
